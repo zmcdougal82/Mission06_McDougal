@@ -1,0 +1,83 @@
+@model Mission06_McDougal.Models.Movie
+
+<h2>Add a Movie</h2>
+
+<style>
+    form {
+        width: 400px;
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="checkbox"] {
+        width: auto;
+        margin-left: 5px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px;
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<form asp-action="AddMovie" method="post">
+    <label for="Title">Title:</label>
+    <input asp-for="Title" id="Title" required />
+
+    <label for="Category">Category:</label>
+    <input asp-for="Category" id="Category" required />
+
+    <label for="Director">Director:</label>
+    <input asp-for="Director" id="Director" required />
+
+    <label for="Year">Year:</label>
+    <input asp-for="Year" id="Year" type="number" required />
+
+    <label for="Rating">Rating:</label>
+    <select asp-for="Rating" id="Rating">
+        <option>G</option>
+        <option>PG</option>
+        <option>PG-13</option>
+        <option>R</option>
+    </select>
+
+    <label for="Edited">
+        <input asp-for="Edited" id="Edited" type="checkbox" /> Edited
+    </label>
+
+    <label for="LentTo">Lent To:</label>
+    <input asp-for="LentTo" id="LentTo" />
+
+    <label for="Notes">Notes:</label>
+    <input asp-for="Notes" id="Notes" maxlength="25" />
+
+    <button type="submit">Add Movie</button>
+</form>
