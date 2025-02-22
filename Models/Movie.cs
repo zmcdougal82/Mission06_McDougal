@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_McDougal.Models
 {
@@ -7,19 +8,25 @@ namespace Mission06_McDougal.Models
         [Key]
         public int MovieId { get; set; }
 
-        public required string Title { get; set; } 
-        public required string Category { get; set; }
-        public required string Director { get; set; }
-        
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+
+        [Required]
+        public string? Title { get; set; }  // Allow null
+
+        [Required]
+        [Range(1888, 2100)]
         public int Year { get; set; }
 
-        public required string Rating { get; set; }
+        public string? Director { get; set; }  // Allow null
+        public string? Rating { get; set; }    // Allow null
 
-        public bool Edited { get; set; } = false;  
+        public bool Edited { get; set; } = false;
 
         public string? LentTo { get; set; }
-
-        [MaxLength(25)]
+        public bool CopiedToPlex { get; set; }
         public string? Notes { get; set; }
+
+        public virtual Category? Category { get; set; }
     }
 }
