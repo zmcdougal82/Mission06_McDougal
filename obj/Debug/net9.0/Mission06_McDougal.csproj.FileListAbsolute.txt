@@ -6,6 +6,7 @@
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/Mission06_McDougal.MvcApplicationPartsAssemblyInfo.cache
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/Mission06_McDougal.RazorAssemblyInfo.cache
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/Mission06_McDougal.RazorAssemblyInfo.cs
+/Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/Mission06_McDougal.sourcelink.json
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/bin/Debug/net9.0/appsettings.Development.json
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/bin/Debug/net9.0/appsettings.json
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/bin/Debug/net9.0/Mission06_McDougal.staticwebassets.runtime.json
@@ -219,4 +220,3 @@
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/Mission06_McDougal.pdb
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/Mission06_McDougal.genruntimeconfig.cache
 /Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/ref/Mission06_McDougal.dll
-/Users/zackmcdougal/RiderProjects/Mission06_McDougal/Mission06_McDougal/obj/Debug/net9.0/Mission06_McDougal.sourcelink.json

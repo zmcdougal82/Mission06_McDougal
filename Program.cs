@@ -1,11 +1,19 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Mission06_McDougal.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 🔹 Load configuration from appsettings.json
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+// 🔹 Get the connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine($"🔎 Using SQLite database at: {connectionString}");
+
 // 🔹 Register SQLite database context
 builder.Services.AddDbContext<MovieContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("MovieConnection"))
+    options.UseSqlite(connectionString)
 );
 
 // 🔹 Add controllers with views
@@ -28,7 +36,7 @@ app.UseAuthorization();
 // 🔹 Define default route for MVC
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
+    pattern: "{controller=Movies}/{action=Index}/{id?}"
 );
 
 app.Run();

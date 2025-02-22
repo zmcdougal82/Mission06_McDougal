@@ -1,83 +1,48 @@
 @model Mission06_McDougal.Models.Movie
 
-<h2>Add a Movie</h2>
+<h2 class="text-center">Add a Movie</h2>
 
-<style>
-    form {
-        width: 400px;
-        margin: 20px 0;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-    }
+<div class="container">
+    <form asp-action="AddMovie" method="post" class="border p-4 rounded bg-light">
+        <div class="mb-3">
+            <label class="form-label">Title:</label>
+            <input asp-for="Title" class="form-control" required />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
 
-    label {
-        display: block;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+        <div class="mb-3">
+            <label class="form-label">Category:</label>
+            <input asp-for="Category" class="form-control" required />
+        </div>
 
-    input, select {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
+        <div class="mb-3">
+            <label class="form-label">Director:</label>
+            <input asp-for="Director" class="form-control" required />
+        </div>
 
-    input[type="checkbox"] {
-        width: auto;
-        margin-left: 5px;
-    }
+        <div class="mb-3">
+            <label class="form-label">Year:</label>
+            <input asp-for="Year" type="number" class="form-control" required />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
 
-    button {
-        margin-top: 15px;
-        padding: 10px;
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+        <div class="mb-3">
+            <label class="form-label">Rating:</label>
+            <input asp-for="Rating" class="form-control" required />
+        </div>
 
-    button:hover {
-        background-color: #45a049;
-    }
-</style>
+        <div class="mb-3 form-check">
+            <input asp-for="Edited" class="form-check-input" type="checkbox" />
+            <label class="form-check-label">Edited</label>
+        </div>
 
-<form asp-action="AddMovie" method="post">
-    <label for="Title">Title:</label>
-    <input asp-for="Title" id="Title" required />
+        <div class="mb-3 form-check">
+            <input asp-for="CopiedToPlex" class="form-check-input" type="checkbox" required />
+            <label class="form-check-label">Copied to Plex</label>
+            <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
+        </div>
 
-    <label for="Category">Category:</label>
-    <input asp-for="Category" id="Category" required />
-
-    <label for="Director">Director:</label>
-    <input asp-for="Director" id="Director" required />
-
-    <label for="Year">Year:</label>
-    <input asp-for="Year" id="Year" type="number" required />
-
-    <label for="Rating">Rating:</label>
-    <select asp-for="Rating" id="Rating">
-        <option>G</option>
-        <option>PG</option>
-        <option>PG-13</option>
-        <option>R</option>
-    </select>
-
-    <label for="Edited">
-        <input asp-for="Edited" id="Edited" type="checkbox" /> Edited
-    </label>
-
-    <label for="LentTo">Lent To:</label>
-    <input asp-for="LentTo" id="LentTo" />
-
-    <label for="Notes">Notes:</label>
-    <input asp-for="Notes" id="Notes" maxlength="25" />
-
-    <button type="submit">Add Movie</button>
-</form>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="/Movies" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

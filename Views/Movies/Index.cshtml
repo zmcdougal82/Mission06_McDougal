@@ -1,72 +1,40 @@
 @model IEnumerable<Mission06_McDougal.Models.Movie>
 
-<h2>Movie Collection</h2>
+<h2 class="mt-4 text-center">Movie Collection</h2>
 
-<style>
-    /* Style the table for better readability */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-        background-color: #f9f9f9;
-    }
+<div class="container mt-3">
+    <a href="/Movies/AddMovie" class="btn btn-success mb-3">Add New Movie</a>
 
-    th, td {
-        padding: 12px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    tr:hover {
-        background-color: #f1f1f1;
-    }
-
-    /* Style the "Add New Movie" button */
-    .add-movie-btn {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 10px 15px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-
-    .add-movie-btn:hover {
-        background-color: #0056b3;
-    }
-</style>
-
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Director</th>
-        <th>Year</th>
-        <th>Rating</th>
-        <th>Edited</th>
-        <th>Lent To</th>
-        <th>Notes</th>
-    </tr>
-    @foreach (var movie in Model)
-    {
+    <table class="table table-striped table-bordered text-center">
+        <thead class="table-dark">
         <tr>
-            <td>@movie.Title</td>
-            <td>@movie.Category</td>
-            <td>@movie.Director</td>
-            <td>@movie.Year</td>
-            <td>@movie.Rating</td>
-            <td>@(movie.Edited ? "Yes" : "No")</td>
-            <td>@(string.IsNullOrEmpty(movie.LentTo) ? "N/A" : movie.LentTo)</td>
-            <td>@(string.IsNullOrEmpty(movie.Notes) ? "N/A" : movie.Notes)</td>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Rating</th>
+            <th>Edited</th>
+            <th>Copied to Plex</th>
+            <th>Actions</th>
         </tr>
-    }
-</table>
-
-<a href="/Movies/AddMovie" class="add-movie-btn">Add New Movie</a>
+        </thead>
+        <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Category</td>
+                <td>@movie.Director</td>
+                <td>@movie.Year</td>
+                <td>@movie.Rating</td>
+                <td>@(movie.Edited ? "Yes" : "No")</td>
+                <td>@(movie.CopiedToPlex ? "Yes" : "No")</td>
+                <td>
+                    <a href="/Movies/Edit/@movie.MovieId" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="/Movies/Delete/@movie.MovieId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
